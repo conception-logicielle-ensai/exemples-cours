@@ -1,0 +1,17 @@
+[MESSAGES CONTROL]
+# Activer ou désactiver certains types de messages
+disable = 
+    missing-module-docstring,  # Pas de docstring pour les modules
+    missing-function-docstring, # Pas de docstring pour les fonctions
+
+[DESIGN]
+# Configuration pour les lignes longues
+max-line-length = 120  # Limiter à 120 caractères par ligne
+
+[FORMAT]
+# Configuration de formatage
+good-names = i,j,k,e,x,run,_)  # Noms "bons" pour les variables
+
+[REPORTS]
+# Format de sortie pour les résultats de Pylint
+output-format = text  # Format de sortie en texte
