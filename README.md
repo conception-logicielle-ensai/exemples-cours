@@ -1,4 +1,3 @@
-# Exemples du cours Conception Logicielle sur les bonnes pratiques de développement
+# Exemples du cours de Conception Logicielle
 
-Le cours est disponible ici : https://conception-logicielle.abrunetti.fr/docs/bonnes-pratiques-dev/
-
+Le cours est disponible ici : https://conception-logicielle.abrunetti.fr/
