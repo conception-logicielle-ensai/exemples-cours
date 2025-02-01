@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mon Application Recettes{% endblock %}</title>
-    <!-- Inclusion du fichier CSS global -->
     <link rel="stylesheet" href="/static/css/style.css">
-    <!-- Inclusion du favicon -->
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -24,7 +22,6 @@
 
     <main class="container">
         {% block content %}
-        <!-- Contenu spécifique à chaque page -->
         {% endblock %}
     </main>
 
