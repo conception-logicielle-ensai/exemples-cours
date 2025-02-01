@@ -1,0 +1,12 @@
+<html>
+<body>
+    <h1>Bonjour {{ user_name }},</h1>
+    <p>Merci de vous être inscrit sur notre plateforme.</p>
+    <p>Votre email : {{ user_email }}</p>
+    {% if is_admin %}
+    <p><strong>Vous avez des privilèges administrateurs.</strong></p>
+    {% endif %}
+    <p>Cordialement,</p>
+    <p>L'équipe de support</p>
+</body>
+</html>
