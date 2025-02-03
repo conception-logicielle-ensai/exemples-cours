@@ -22,3 +22,5 @@ Ouvrir un autre terminal :
 ```
 python3 cours-4/websocket/client.py
 ```
+
+> Il y a également un client html, vous pouvez y accéder en utilisant votre navigateur.
