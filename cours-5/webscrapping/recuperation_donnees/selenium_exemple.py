@@ -29,11 +29,11 @@ def search(movie_name):
     #film_click = driver.find_element(By.CLASS_NAME,"title-list-row__column-header")
     #film_click.click()
     
-def get_plateformes(movie_name:str):
+def get_projections_ou_plateformes(movie_name:str):
     """
     Depuis la page de recherche, récupère les sous liens
     """
-    platforms = driver.find_elements(By.CSS_SELECTOR, ".buybox-row__offers .offer")  # Trouver les plateformes
+    platforms = driver.find_elements(By.CSS_SELECTOR, ".buybox-row__offers .offer")  # Trouver les projections_ou_plateformes
 
     if platforms:
         print(f"Le film '{movie_name}' est disponible, liens:")
@@ -65,7 +65,7 @@ def accepter_cookies() -> bool:
     time.sleep(5)  # Attendre que l'acceptation soit prise en compte
 def find_movie_platforms(movie_name):
     """
-    Trouver les plateformes sur lesquelles le film peut se regarder
+    Trouver les projections_ou_plateformes sur lesquelles le film peut se regarder
     """
     try:
         driver.get(url=JUST_WATCH_URL)
@@ -74,8 +74,8 @@ def find_movie_platforms(movie_name):
         accepter_cookies()
 
         search(movie_name)
-        # 3️⃣ Vérifier si des résultats sont trouvés et récupérer les plateformes
-        get_plateformes(movie_name=movie_name) 
+        # 3️⃣ Vérifier si des résultats sont trouvés et récupérer les projections_ou_plateformes
+        get_projections_ou_plateformes(movie_name=movie_name) 
 
     except Exception as e:
         print("Erreur :", e)
