@@ -1,4 +1,4 @@
-# Web templating
+# Templating
 
 Projet présentant le webtemplating avec jinja2
 
