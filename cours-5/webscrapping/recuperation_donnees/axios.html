@@ -1,0 +1,19 @@
+<div id="axios">
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Import Axios -->
+
+<button id="axios-btn" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; font-size: 16px; border-radius: 5px; cursor: pointer; text-align: center; font-family: Arial, sans-serif;" onclick="fetchPageAxios()">Charger la page, avec le package axios</button>
+
+
+<script>
+        async function fetchPageAxios() {
+            const url = "https://conception-logicielle.abrunetti.fr/";
+            try {
+                const response = await axios.get(url);
+                document.getElementById("axios-content").textContent = response.data;
+            } catch (error) {
+                document.getElementById("axios-content").textContent = "Erreur lors du chargement: " + error.message;
+            }
+        }
+</script>
+<div id="axios-content" style="white-space: pre-wrap; border: 1px solid #000; padding: 10px; margin-top: 10px;"></div>
+</div>

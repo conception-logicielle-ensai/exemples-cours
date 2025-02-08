@@ -1,0 +1,21 @@
+<div id="fetch">
+
+<button id="fetch-btn" onclick="fetchPageFetch()">Charger la page</button>
+<div id="fetch-content" style="white-space: pre-wrap; border: 1px solid #000; padding: 10px; margin-top: 10px;"></div>
+
+<script>
+        async function fetchPageFetch() {
+            const url = "https://conception-logicielle.abrunetti.fr/";
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`Erreur: ${response.status}`);
+                }
+                const text = await response.text();
+                document.getElementById("fetch-content").textContent = text;
+            } catch (error) {
+                document.getElementById("fetch-content").textContent = "Erreur lors du chargement fetch: " + error.message;
+            }
+        }
+</script>
+</div>
