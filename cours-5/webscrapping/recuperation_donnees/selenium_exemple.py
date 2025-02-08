@@ -63,7 +63,7 @@ def accepter_cookies() -> bool:
     except:
         print("aucune étape de cookie trouvée, skip...")
     time.sleep(5)  # Attendre que l'acceptation soit prise en compte
-def find_movie_platforms(movie_name):
+def find_movie_platform_or_projection(movie_name):
     """
     Trouver les projections_ou_plateformes sur lesquelles le film peut se regarder
     """
@@ -83,4 +83,4 @@ def find_movie_platforms(movie_name):
         driver.quit()  # Fermer le navigateur après l'exécution du test
 
 # Exécution du test pour chercher un film
-find_movie_platforms("Inception")
+find_movie_platform_or_projection("Inception")
