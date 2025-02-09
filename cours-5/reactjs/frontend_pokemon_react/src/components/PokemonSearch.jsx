@@ -7,18 +7,23 @@ function PokemonSearch({ setPokemon }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = async () => {
-    try {
-      const response = await API.get(`pokemon/${searchTerm.toLowerCase()}`);
-      setPokemon(response.data);
-    } catch (error) {
-      const errorMessage = error.response
-        ? `Erreur ${error.response.status}: ${error.response.data || "Erreur inconnue"}`
-        : "Erreur de réseau";
-      alert(errorMessage);
-    } finally {
-      setLoading(false);
-    }
-  };
+      if (!searchTerm.trim()) {
+        alert("Veuillez entrer un nom ou un ID de Pokémon.");
+        return;
+      }
+  
+      try {
+        const response = await API.get(`pokemon/${searchTerm.toLowerCase()}`);
+        setPokemon(response.data);
+      } catch (error) {
+        const errorMessage = error.response
+          ? `Erreur ${error.response.status}: ${
+              error.response.data || "Erreur inconnue"
+            }`
+          : "Erreur de réseau";
+        alert(errorMessage);
+      }
+    };
 
   return (
     <div className="pokemon-search">
