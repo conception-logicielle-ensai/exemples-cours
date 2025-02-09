@@ -36,7 +36,6 @@ class User:
         return f"User : id {self.id}, nom {self.nom}, age {self.age}, ville {self.ville}"
 
 
-# CREATE (Insertion)
 def create_user(cursor,conn,user:User):
     cursor.execute('''
     INSERT INTO user_data (nom, age, ville)
@@ -44,7 +43,6 @@ def create_user(cursor,conn,user:User):
     ''', (user.nom, user.age,user.ville))
     conn.commit()
 
-# READ (Sélection)
 def read_where_nom(cursor,where_nom:str) -> User:
     cursor.execute('''
     SELECT * FROM user_data WHERE nom = ?
@@ -61,7 +59,6 @@ def update_user_set_age_where_nom(cursor,conn,age:int,nom:str):
     conn.commit()
 
 def delete_user_where_nom(cursor,conn,nom:str):
-    # DELETE (Suppression)
     cursor.execute('''
     DELETE FROM user_data WHERE nom = ?
     ''', (nom,))
@@ -71,8 +68,7 @@ def delete_user_where_nom(cursor,conn,nom:str):
 
 
 
-# Configuration de la base de données SQLite
-DB_PATH = os.getenv("DB_PATH", "database.db")  # Le chemin vers la base de données SQLite
+DB_PATH = os.getenv("DB_PATH", "database.db")  # Le chemin vers la base de données SQLite, un fichier.
 conn = sqlite3.connect(DB_PATH)
 cursor = conn.cursor()
 initdb(conn,cursor)
