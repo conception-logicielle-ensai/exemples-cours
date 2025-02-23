@@ -26,6 +26,7 @@ source ~/.bashrc
 nvm install v22
 echo "version de node et de npm"
 node -v && npm -v 
+npm install --global prettier
 print_section "Installation d'un geckodriver"
 mkdir -p ~/downloads
 curl -Lo ~/downloads/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
