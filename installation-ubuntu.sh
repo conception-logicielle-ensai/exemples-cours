@@ -13,6 +13,13 @@ sudo apt update -y
 sudo apt upgrade -y
 print_section "Installation de vscode"
 sudo snap install code --classic
+print_section "Installation extensions vscode"
+code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
+code --install-extension ms-python.debugpy
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension redhat.vscode-yaml
+code --install-extension rvest.vs-code-prettier-eslint
 print_section "installation de python"
 sudo apt install  -y python3-pip git-all python3-virtualenv
 print_section "version de python et de pip:"
