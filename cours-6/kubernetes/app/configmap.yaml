@@ -4,7 +4,8 @@ metadata:
   name: configuration-application
 data:
   VARIABLE_ENVIRONNEMENT1: variable_environnement
-  VARIABLE_ENVIRONNEMENT2: variable_environnement
+  DATABASE_URL: "postgres://user:password@db:5432/mydb"
+
   # exemple api python
   #API_URL: la valeur de l'url
   #API_KEY: la valeur de la cle (attention a pas versionner ou dans un autre dépot privé)
