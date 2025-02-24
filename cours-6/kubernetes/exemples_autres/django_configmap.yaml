@@ -7,3 +7,7 @@ data:
   DJANGO_ALLOWED_HOSTS: "*"
   POSTGRES_HOST: "db"
   POSTGRES_PORT: "5432"
+  DJANGO_SECRET_KEY: "amodifier"  
+  POSTGRES_DB: "amodifier"             
+  POSTGRES_USER: "amodifier"             
+  POSTGRES_PASSWORD: "amodifier"  
