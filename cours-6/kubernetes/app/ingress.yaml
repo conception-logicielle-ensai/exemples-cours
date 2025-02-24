@@ -6,7 +6,7 @@ metadata:
     name: application
 spec:
   rules:
-    - host: abrunetti.kub.sspcloud.fr
+    - host: application.kub.sspcloud.fr
     # CETTE URL est unique, donc si quelqu'un l'a déjà prise vous ne pourrez pas la prendre
     # Changer le host vers une url qui fonctionne, une url du type *.kub.sspcloud.fr exemple mon-application.kub.sspcloud.fr
       http:
