@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: application
-          image: hello-world
+          image: ragatzino/backend-demo-conception-logicielle:latest
           # Lien de l'image que vous avez construit pour votre brique applicative à changer
           #image: ragatzino/frontend-demo-conception-logicielle:latest
           resources:
