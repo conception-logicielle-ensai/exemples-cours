@@ -17,7 +17,3 @@ try:
     print(order)
 except FrozenInstanceError:
     print("Ne s'affichera jamais")
-print(order)
-liste = order.items
-liste.append("converse")
-print(order)
