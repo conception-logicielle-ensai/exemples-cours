@@ -1,0 +1,13 @@
+[project]
+name = "helloensai"
+version = "0.1.4"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["helloensai"]
+
+[tool.hatch.build.targets.sdist]
+include = ["helloensai"]

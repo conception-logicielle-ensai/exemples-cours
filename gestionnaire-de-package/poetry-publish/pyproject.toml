@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "helloensai"
+name = "helloensaipoetry"
 version = "0.1.1"
 description = "Projet helloensai pour exemple de publication de livrable sur pypi"
 authors = ["Antoine Brunetti"]
