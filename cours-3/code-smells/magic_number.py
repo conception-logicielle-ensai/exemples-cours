@@ -1,82 +1,105 @@
 import numpy as np
 
 def v1():
-    def extreme(data):
-        # Calcul de la moyenne et de l'écart-type
-        mean = np.mean(data)
-        std_dev = np.std(data)
-        resultat = []  # Liste pour stocker les valeurs extrêmes
-        for x in data:
-            if abs(x - mean) > 3 * std_dev: 
-                resultat.append(x)  # Utilisation de append pour ajouter des éléments
-        return resultat  # Retourne la liste des valeurs extrêmes
+    def detecter_valeurs_extremes(valeurs):
+        """
+        Identifie les valeurs situées à plus de 3 écarts-types de la moyenne.
+        """
+        moyenne = np.mean(valeurs)
+        ecart_type = np.std(valeurs)
 
-    # Calcul de la moyenne glissante sur une fenêtre de taille 3
-    def moyenne_glissante(data):
+        valeurs_extremes = []
+        for valeur in valeurs:
+            if abs(valeur - moyenne) > 3 * ecart_type:
+                valeurs_extremes.append(valeur)
+
+        return valeurs_extremes
+
+
+    def calculer_moyenne_glissante(valeurs):
         """
         Calcule une moyenne glissante sur une fenêtre de taille 3.
-        Les bords où il n'y a pas assez de valeurs retournent None.
+        Les positions où le calcul est impossible retournent None.
         """
-        if len(data) < 3:
-            return [None] * len(data)
+        if len(valeurs) < 3:
+            return [None] * len(valeurs)
 
-        resultats = [None]  # Padding initial pour le bord gauche
-        for i in range(1, len(data) - 1):
-            moyenne = np.mean(data[i - 1:i + 2])  # Calcul de la moyenne glissante
-            resultats.append(moyenne)
-        resultats.append(None)  # Padding final pour le bord droit
-        return resultats
+        moyennes_glissantes = [None]  # Bord gauche
+        for index in range(1, len(valeurs) - 1):
+            moyenne_locale = np.mean(valeurs[index - 1:index + 2])
+            moyennes_glissantes.append(moyenne_locale)
 
-    # Données
-    data = [100, 102, 98, 97, 250, 101, 99, 102]
-    # Identification des valeurs extrêmes (plus de 3 écarts-types de la moyenne)
-    extremes = extreme(data)
-    print(f"Valeurs extrêmes : {extremes}")
-    # Calcul et affichage de la moyenne glissante
-    glissement = moyenne_glissante(data)
-    print(f"Moyenne glissante sur 3 : {glissement}")
+        moyennes_glissantes.append(None)  # Bord droit
+        return moyennes_glissantes
+
+
+    # Données d'entrée
+    valeurs_mesurees = [100, 100, 101, 99, 100, 101, 99, 100, 100, 100, 300]
+
+    # Détection des valeurs extrêmes
+    valeurs_extremes = detecter_valeurs_extremes(valeurs_mesurees)
+    print(f"Valeurs extrêmes : {valeurs_extremes}")
+
+    # Calcul de la moyenne glissante
+    moyennes = calculer_moyenne_glissante(valeurs_mesurees)
+    print(f"Moyenne glissante sur 3 : {moyennes}")
+
 
 def v2():
-    import numpy as np
+    # Constantes de configuration
+    TAILLE_FENETRE_MOYENNE = 3
+    SEUIL_ECART_TYPE = 3
 
-    # Définition des constantes
-    TAILLE_FENETRE_GLISSANTE = 3
-    MULTIPLICATEUR_SEUIL = 3
 
-    def extreme(data):
-        # Calcul de la moyenne et de l'écart-type
-        mean = np.mean(data)
-        std_dev = np.std(data)
-        resultat = []  # Liste pour stocker les valeurs extrêmes
-        for x in data:
-            if abs(x - mean) > MULTIPLICATEUR_SEUIL * std_dev:  # Utilisation de la constante
-                resultat.append(x)
-        return resultat  # Retourne la liste des valeurs extrêmes
-
-    # Calcul de la moyenne glissante sur une fenêtre de taille définie
-    def moyenne_glissante(data):
+    def detecter_valeurs_extremes(valeurs):
         """
-        Calcule une moyenne glissante sur une fenêtre de taille définie.
-        Les bords où il n'y a pas assez de valeurs retournent None.
+        Identifie les valeurs situées à plus de SEUIL_ECART_TYPE écarts-types
+        de la moyenne.
         """
-        if len(data) < TAILLE_FENETRE_GLISSANTE:
-            return [None] * len(data)
+        moyenne = np.mean(valeurs)
+        ecart_type = np.std(valeurs)
 
-        resultats = [None]  # Padding initial pour le bord gauche
-        for i in range(1, len(data) - 1):
-            moyenne = np.mean(data[i - 1:i + TAILLE_FENETRE_GLISSANTE - 1])  # Utilisation de la constante
-            resultats.append(moyenne)
-        resultats.append(None)  # Padding final pour le bord droit
-        return resultats
+        valeurs_extremes = []
+        for valeur in valeurs:
+            if abs(valeur - moyenne) > SEUIL_ECART_TYPE * ecart_type:
+                valeurs_extremes.append(valeur)
 
-    # Données
-    data = [100, 102, 98, 97, 250, 101, 99, 102]
-    # Identification des valeurs extrêmes (plus de 3 écarts-types de la moyenne)
-    extremes = extreme(data)
-    print(f"Valeurs extrêmes : {extremes}")
-    # Calcul et affichage de la moyenne glissante
-    glissement = moyenne_glissante(data)
-    print(f"Moyenne glissante sur 3 : {glissement}")
+        return valeurs_extremes
+
+
+    def calculer_moyenne_glissante(valeurs):
+        """
+        Calcule une moyenne glissante sur une fenêtre de taille
+        TAILLE_FENETRE_MOYENNE.
+        Les bords où le calcul est impossible retournent None.
+        """
+        if len(valeurs) < TAILLE_FENETRE_MOYENNE:
+            return [None] * len(valeurs)
+
+        moyennes_glissantes = [None]  # Bord gauche
+        for index in range(1, len(valeurs) - 1):
+            moyenne_locale = np.mean(
+                valeurs[index - 1:index + TAILLE_FENETRE_MOYENNE - 1]
+            )
+            moyennes_glissantes.append(moyenne_locale)
+
+        moyennes_glissantes.append(None)  # Bord droit
+        return moyennes_glissantes
+
+
+    # Données d'entrée
+    valeurs_mesurees = [100, 100, 101, 99, 100, 101, 99, 100, 100, 100, 300]
+
+    # Détection des valeurs extrêmes
+    valeurs_extremes = detecter_valeurs_extremes(valeurs_mesurees)
+    print(f"Valeurs extrêmes : {valeurs_extremes}")
+
+    # Calcul de la moyenne glissante
+    moyennes = calculer_moyenne_glissante(valeurs_mesurees)
+    print(f"Moyenne glissante sur {TAILLE_FENETRE_MOYENNE} : {moyennes}")
+
+
+
 print("=== Avant amélioration ===")
 v1()
 print("=== Après amélioration ===")
