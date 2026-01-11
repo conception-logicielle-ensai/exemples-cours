@@ -9,3 +9,5 @@ load_dotenv()
 local_env_path = ".env.local"
 if os.path.exists(local_env_path):
     load_dotenv(dotenv_path=local_env_path, override=True)
+    print(os.getenv("SEUIL"))
+    print(os.getenv("CHEMIN_FICHIER_LOG"))

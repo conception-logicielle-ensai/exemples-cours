@@ -8,4 +8,5 @@ import os
 chemin_fichier_log = os.getenv("CHEMIN_FICHIER_LOG")
 environnement = os.getenv("ENVIRONNEMENT")
 
-
+print(chemin_fichier_log)
+print(environnement)

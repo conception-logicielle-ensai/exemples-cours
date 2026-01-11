@@ -1,3 +1,3 @@
-# Cours 3
+# Cours 2
 
-Exemples du cours 3 présenté en conception logicielle a l'ENSAI
+Exemples du cours 2 présenté en conception logicielle a l'ENSAI
