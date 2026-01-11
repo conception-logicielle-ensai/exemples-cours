@@ -1,6 +1,0 @@
-asgiref
-Django
-sqlparse
-tzdata
-jinja2
-typing
