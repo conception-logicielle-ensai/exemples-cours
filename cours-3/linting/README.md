@@ -1,4 +1,0 @@
-# Linting
-
-Différents linters existent
-
