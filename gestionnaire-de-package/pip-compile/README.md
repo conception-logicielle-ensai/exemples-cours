@@ -23,6 +23,11 @@ pip-compile
 pip-sync
 ```
 
+Pour mettre a jour des dépendances il faudra ensuite faire : 
+```
+pip-compile --upgrade
+```
+
 ## Getting started
 
 Pour démarrer le projet
