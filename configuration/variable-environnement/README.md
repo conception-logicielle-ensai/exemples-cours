@@ -57,3 +57,14 @@ Pour lancer le programme, exécutez la commande suivante depuis le répertoire c
 ```bash
 python3 ./load_fichier_env.py
 ```
+
+## Programme chargeant les fichier d'environnement avec `uv`
+
+Dans cette ersionne on charge les variables d'environnement au moment du runtime avec `uv`.
+Pour lancer le programme, lancez les commendes 
+
+```bash
+uv venv
+source .venv/bin/activate
+uv run --env-file .env.local python3 load_fichier_dotenv_uv.py
+```
