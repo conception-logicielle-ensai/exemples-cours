@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -e
+
+# Récupération des fichiers Python présents dans le staging
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=d | grep '\.py$' || true)
+
+if [[ -z "$STAGED_FILES" ]]; then
+echo "Aucun fichier Python à vérifier."
+exit 0
+fi
+
+echo "Vérifications Ruff sur les fichiers ajoutés au staging..."
+
+# 1. Formatage
+echo "Formatage avec Ruff..."
+uv run ruff format $STAGED_FILES
+
+# 2. Corrections automatiques de lint
+echo "Corrections automatiques avec Ruff..."
+uv run ruff check --fix $STAGED_FILES
+
+# 3. Vérification finale bloquante
+echo "Vérification finale avec Ruff..."
+uv run ruff check $STAGED_FILES
+RUFF_STATUS=$?
+
+if [[ $RUFF_STATUS -ne 0 ]]; then
+echo "Erreur : des problèmes Ruff non corrigeables automatiquement subsistent."
+exit 1
+fi
+
+# Ré-ajout au staging
+echo "Ajout des fichiers modifiés au staging..."
+git add $STAGED_FILES
+
+echo "Toutes les vérifications sont passées. Commit autorisé."
+exit 0
