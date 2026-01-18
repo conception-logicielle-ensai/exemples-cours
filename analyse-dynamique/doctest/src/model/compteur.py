@@ -5,6 +5,24 @@ from src.custom_types import Lettre
 
 
 class Compteur:
+    """
+    Compteur de lettres par ligne.
+
+    >>> # test 1 : liste vide
+    >>> compteur = Compteur([])
+    >>> compteur.comptage_par_lettre
+    {}
+
+    >>> # test 2 : majuscules et minuscules
+    >>> compteur = Compteur(["a", "A", "a", "b"])
+    >>> compteur.comptage_par_lettre
+    {'a': 2, 'A': 1, 'b': 1}
+
+    >>> # test 3 : accents, chiffres et symboles
+    >>> compteur = Compteur(["à", "$", "*", "23"])
+    >>> compteur.comptage_par_lettre
+    {}
+    """
     def __init__(self, lignes: Iterable[str]):
         from itertools import tee
 

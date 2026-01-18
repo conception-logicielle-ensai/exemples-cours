@@ -1,0 +1,13 @@
+[project]
+name = "doctestensaiexemple"
+version = "0.1.0"
+description = "Projet exemple utilisant doctest - compteur d'occurence de lettre dans un fichier"
+readme = "README.md"
+requires-python = ">=3.13"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
