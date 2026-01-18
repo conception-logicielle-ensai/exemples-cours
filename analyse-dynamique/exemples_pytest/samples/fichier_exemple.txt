@@ -1,0 +1,2 @@
+Ceci est un fichier exemple pour le compteur
+Ce fichier peut changer et peut être innaccessible, une bonne raison de tester les interactions du SI avec celui ci
