@@ -2,15 +2,21 @@
 
 Pour exécuter l'application en local, suivez ces étapes :
 
+### Pré-requis
+
+* `python` ≥ 3.11
+* `uv` installé
+
 ### Installation des dépendances
+
 ```bash
-pip install -r cours-4/webservice/requirements.txt
+uv sync
 ```
 
 ### Démarrage de l'application en local
+
 ```bash
-cd cours-4/fastapi
-uvicorn main:app --reload
+uv run uvicorn main:app --reload
 ```
 
 ### Accès à Swagger
