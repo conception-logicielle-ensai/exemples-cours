@@ -1,15 +1,12 @@
 [project]
-name = "webscrapping"
+name = "seleniumex"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "beautifulsoup4>=4.14.3",
+    "pdfkit>=1.0.0",
+    "pypdf2>=3.0.1",
     "requests>=2.32.5",
-]
-
-[tool.uv.workspace]
-members = [
-    "seleniumex",
+    "selenium>=4.40.0",
 ]
