@@ -1,0 +1,15 @@
+[project]
+name = "sqlmodel-ex"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.128.0",
+    "sqlmodel>=0.0.31",
+]
+
+[dependency-groups]
+dev = [
+    "uvicorn>=0.40.0",
+]
