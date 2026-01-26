@@ -8,6 +8,10 @@ def query_csv_file(file_path_or_url:str, selectquery:str = "*", where:Optional[s
         """
     if where != None:
         query += f"WHERE {where}"
+    query = f"""
+        FROM read_csv('fichier.csv')
+        SELECT *
+        """
     res = duckdb.sql(query)
     return res
 
