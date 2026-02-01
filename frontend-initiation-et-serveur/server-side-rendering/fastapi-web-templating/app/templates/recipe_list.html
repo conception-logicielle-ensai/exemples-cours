@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} Liste des Recettes {% endblock %}
+
+{% block content %}
+  <input type="text" id="search" placeholder="Rechercher une recette..." />
+
+<ul id="recipe-list">
+{% for recipe in recipes %}
+    <li>
+        {{ recipe.id }}. <a href="/recipes/{{ recipe.id }}">{{ recipe.title }}</a> - {{ recipe.description }}
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

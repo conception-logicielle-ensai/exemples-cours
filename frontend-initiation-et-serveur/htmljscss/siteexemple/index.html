@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>TITLE: Exemple de balises HTML</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Exemple de balises HTML : utilisez l'inspecteur pour observer la source</h1>
+        <nav>
+            <ul>
+                <li><a href="#text">Texte</a></li>
+                <li><a href="#listes">Listes</a></li>
+                <li><a href="#tableau">Tableau</a></li>
+                <li><a href="#form">Formulaire</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="text">
+            <div class="div-box">Je suis une div</div>
+            <h2>Texte</h2>
+            <p>Ceci est un <strong>paragraphe</strong> avec du <em>texte mis en valeur</em>.</p>
+            <p>Voici un lien : <a href="https://example.com">example.com</a></p>
+            <img src="https://picsum.photos/200/300" alt="Exemple d'image" />
+        </section>
+
+        <section id="listes">
+            <h2>Listes</h2>
+            <h3>Liste non ordonnée</h3>
+            <ul>
+                <li>Élément A</li>
+                <li>Élément B</li>
+            </ul>
+            <h3>Liste ordonnée</h3>
+            <ol>
+                <li>Étape 1</li>
+                <li>Étape 2</li>
+            </ol>
+        </section>
+
+        <section id="tableau">
+            <h2>Tableau</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Âge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>30</td>
+                    </tr>
+                    <tr>
+                        <td>Doe</td>
+                        <td>25</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="form">
+            <h2>Formulaire</h2>
+            <form id="monFormulaire">
+                <label>
+                    Nom :
+                    <input type="text" name="name" id="inputNom" placeholder="Entrez votre nom" />
+                </label>
+                <label>
+                    Âge :
+                    <input type="number" name="age" id="inputAge" placeholder="Entrez votre âge" />
+                </label>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>(footer)© Conception Logicielle ENSAI</p>
+        <!-- Oui je peux mettre des commentaires et vous dire que je triche en mettant du JS ici-->
+        <button id="btnRetour" class="btn-back">← Retour</button>
+    </footer>
+
+    <!-- Lien vers le fichier JavaScript à la fin du body -->
+    <script src="js/script.js"></script>
+</body>
+</html>
