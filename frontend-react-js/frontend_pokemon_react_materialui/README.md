@@ -1,4 +1,3 @@
-
 ## Description
 
 Cette version est basée sur l'utilisation de composants Material-UI et ne nécessite aucune feuille de styles.

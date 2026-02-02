@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Typography } from "@mui/material";
 import PokemonSearch from "./components/PokemonSearch";
 import PokemonDetails from "./components/PokemonDetails";

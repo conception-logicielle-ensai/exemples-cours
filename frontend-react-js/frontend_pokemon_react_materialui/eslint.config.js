@@ -34,7 +34,7 @@ export default [
         { allowConstantExport: true },
       ],
       // Ajoutez cette règle pour définir le style de saut de ligne
-      "linebreak-style": ["error", "windows"],
+      "linebreak-style": ["error", "unix"],
     },
   },
 ];

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 
@@ -20,15 +21,12 @@ function PokemonSearch({ setPokemon }) {
     }
 
     try {
-      const response = await API.get(
-        `pokemon/${searchTerm.toLowerCase()}`
-      );
+      const response = await API.get(`pokemon/${searchTerm.toLowerCase()}`);
       setPokemon(response.data);
     } catch (error) {
       const errorMessage = error.response
         ? `Erreur ${error.response.status}: ${
-            error.response.data ||
-            "Erreur inconnue"
+            error.response.data || "Erreur inconnue"
           }`
         : "Erreur de réseau";
 
@@ -38,11 +36,7 @@ function PokemonSearch({ setPokemon }) {
 
   return (
     <SearchWrapper elevation={0}>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ mb: 2 }}
-      >
+      <Typography variant="h6" align="center" sx={{ mb: 2 }}>
         Rechercher un Pokémon :
       </Typography>
 
@@ -50,15 +44,10 @@ function PokemonSearch({ setPokemon }) {
         <TextField
           label="Nom ou ID"
           value={searchTerm}
-          onChange={(e) =>
-            setSearchTerm(e.target.value)
-          }
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
 
-        <SearchButton
-          variant="contained"
-          onClick={handleSearch}
-        >
+        <SearchButton variant="contained" onClick={handleSearch}>
           Chercher
         </SearchButton>
       </SearchRow>
@@ -67,3 +56,7 @@ function PokemonSearch({ setPokemon }) {
 }
 
 export default PokemonSearch;
+
+PokemonSearch.propTypes = {
+  setPokemon: PropTypes.func.isRequired,
+};
