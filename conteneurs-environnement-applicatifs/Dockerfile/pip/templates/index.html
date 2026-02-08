@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Météo</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Consultez la météo</h1>
+    <form method="post">
+        <input type="text" name="city" placeholder="Entrez une ville" required>
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% if weather %}
+        <h2>Météo pour {{ weather.city }}</h2>
+        <p>Température: {{ weather.temperature }} °C</p>
+        <p>Ressenti: {{ weather.feels_like }} °C</p>
+        <p>Description: {{ weather.description }}</p>
+        <p>Humidité: {{ weather.humidity }}%</p>
+    {% elif error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
