@@ -1,0 +1,1 @@
+from ragatzino/backend-demo-conception-logicielle:latest
